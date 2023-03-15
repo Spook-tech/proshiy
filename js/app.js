@@ -84,6 +84,43 @@ const tarrifsSwiper = new Swiper('.tariffs-swiper', {
       spaceBetween: 30,
     },
   },
-
+});
+const whyUsSwiper = new Swiper('.why-us-swiper', {
+  slidesPerView: 1,
+  spaceBetween: 40,
+  pagination: {
+    el: '.why-us-pagination',
+    clickable: true,
+  },
+  grid: {
+    rows: 3,
+    fill: "row",
+  },
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+    },
+    1250: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
 });
 
+const menuBurger = document.querySelector(".header__burger");
+const headerMenu = document.querySelector(".header__nav");
+
+function toggleMenu() {
+  menuBurger.classList.toggle("active");
+  headerMenu.classList.toggle("active");
+  document.body.classList.toggle("lock");
+}
+
+document.body.addEventListener("click", function(e){
+  const target = e.target;
+  console.log(target);
+  if(target.classList.contains('header__burger')){
+    menuBurger.classList.toggle('active');
+    headerMenu.classList.toggle('active');
+  }
+});
